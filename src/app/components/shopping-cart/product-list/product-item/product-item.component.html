@@ -1,16 +1,18 @@
 <div class="card mb-4 shadow-sm">
     <img class="bd-placeholder-img card-img-top" width="100%" 
-    src="https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823__340.jpg">
+    [src]="productItem.imageUrl">
     <div class="card-body">
      <p class ="card-text">
-         <strong>{{254 | currency: 'INR'}}</strong>
+         <strong>{{productItem.price | currency: 'INR'}}</strong>
      </p>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"> {{productItem.desciption}} </p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-outline-primary product-btn">Add to cart</button>
+          <button type="button"  
+          class="btn btn-sm btn-outline-primary product-btn"
+          (click)="handleAddToCart()"
+          >Add to cart</button>
           <button type="button" class="btn btn-sm btn-outline-secondary product-btn">View details</button>
         </div>
-  
       </div>
     </div>
