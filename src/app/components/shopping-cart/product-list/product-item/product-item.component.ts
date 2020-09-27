@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { from } from 'rxjs';
-import { Product } from 'src/app/models/product';
-import {MessengerService } from 'src/app/services/messenger.service'
+import { Product } from 'src/app/models/product'
+import { MessengerService } from 'src/app/services/messenger.service'
+import {CartService } from 'src/app/services/cart.service'
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
@@ -9,16 +9,18 @@ import {MessengerService } from 'src/app/services/messenger.service'
 })
 export class ProductItemComponent implements OnInit {
 
-@Input () productItem = Product
+  @Input() productItem: Product
 
-  constructor(private msg : MessengerService) { }
+  constructor(private msg: MessengerService ,private cartservices : CartService) { }
 
-  ngOnInit(): void {
-   
-                  }
+  ngOnInit() {
+  }
 
-handleAddToCart(){
-  this.msg.sendMsg(this.productItem)
-}
+  handleAddToCart() {
+    this.cartservices.addProductToCart(this.productItem).subscribe(()=> {
+      this.msg.sendMsg(this.productItem) 
+    })
+    
+  }
 
 }
