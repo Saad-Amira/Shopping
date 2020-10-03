@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   constructor() { }
-
+  model : any={}
+  
   ngOnInit(): void {
   }
-
+login (){
+  console.log(this.model)
+}
 }
