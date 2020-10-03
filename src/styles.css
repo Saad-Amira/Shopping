@@ -22,3 +22,13 @@ border-bottom-right-radius:.0 ;
     color: palevioletred;
     cursor: pointer;
 }
+.guest-form-cart h2{
+    text-transform: uppercase;
+    font-size : medium ;
+}
+.guest-form-cart label {
+    font-size: medium;
+}
+.btn-primary.disabled,  .btn-primary.disabled{
+    cursor: not-allowed;
+}
